@@ -1,0 +1,53 @@
+from django.db import models
+from datetime import datetime
+from account.models import *
+
+# Create your models here.
+class Mill(models.Model):
+    date = models.DateField(unique=True)
+    mill = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.IntegerField(default=0)
+
+    def __str__(self):
+        return str(self.date)
+
+class Diposit(models.Model):
+    date = models.DateField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.IntegerField()
+
+    def __str__(self):
+        return str(self.date)
+    
+class Bill(models.Model):
+    date = models.DateField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    mill = models.IntegerField()
+    diposit = models.IntegerField(default=0)
+
+    class Meta:
+        unique_together = ('date', 'user')
+
+    def __str__(self):
+        return str(self.date)
+    
+
+class Establish(models.Model):
+    DETAILS_CHOICE = [
+        ("O", "Oil"),
+        ("G", "Gas"),
+        ("V", "Ginger & Garlic"),
+        ("C", "Chili"),
+        ("O", "Other"),
+    ]
+
+    date = models.DateField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    details = models.CharField(max_length=1, choices=DETAILS_CHOICE)
+    amount = models.IntegerField()
+
+    def __str__(self):
+        return str(self.date)
+    
+

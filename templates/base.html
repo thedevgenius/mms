@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>{% block 'title' %}{% endblock 'title' %}</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/swiper.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <script src="/static/js/jquery.js"></script>
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'>       
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" > </script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap">  
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-auto">
+                    <a href="{% url 'home' %}"><img src="/static/images/logo.png" alt=""></a>
+                </div>
+                <div class="col-auto">
+                    <div class="header-nav">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Contact</a></li>
+                                {% if not request.user.is_authenticated %}
+                                    <li><a href="{% url 'login' %}" class="btn btn-warning">Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                        <div class="profile">
+                            {% if request.user.is_authenticated %}
+                                <p class="username mb-0">{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                                <ul class="profile-dropdown">
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+
+    <main class="site">
+        <div class="page-content">
+            {% block 'banner' %}{% endblock 'banner' %}
+            
+            {% block 'content' %}{% endblock 'content' %}
+        </div>
+    </main>
+
+    
+	
+
+    
+
+	<script src="/static/js/bootstrap.bundle.js"></script>
+	<script src="/static/js/swiper.js"></script>
+	<script src="/static/js/script.js"></script>
+</body>
+
+</html>

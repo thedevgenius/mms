@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Dashboard | MMS</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/swiper.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <script src="/static/js/jquery.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap"> 
+</head>
+<body>
+	
+    <header class="dashboard-header bg-light">
+        <div class="container-fluid">
+            <h3 class="mb-0">Hey! {{ request.user.first_name }} {{ request.user.last_name }}</h3>
+        </div>
+    </header>
+    <main class="site">
+        <div class="page-content">
+            <div class="container-fluid bb py-3">
+                <ul class="link-list">
+                    <li><a href="{% url 'dashboard' %}"><i class="fa-sharp fa-light fa-grid-horizontal"></i> Dashboard</a></li>
+                    <li><a href="{% url 'add-mill' %}"><i class="fa-light fa-pot-food"></i>Add Meal</a></li>
+                    <li><a href="{% url 'add-establish' %}"><i class="fa-light fa-garlic"></i>Add Expenditure</a></li>
+                </ul>
+            </div>
+
+            <div class="dashboard-cont py-3">
+                <div class="container">
+                    <div class="row gx-1">
+                        <div class="col-4">
+                            <div class="dash-box text-center bg-primary">
+                                <div class="icon"><i class="fa-solid fa-fork-knife"></i></div>
+                                <h3>{{ total_mill }}</h3>
+                                <span class="small">Meal</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="dash-box text-center bg-orange">
+                                <div class="icon"><i class="fa-sharp fa-solid fa-wallet"></i></div>
+                                <h3>{{ diposit }}</h3>
+                                <span class="small">Diposit</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="dash-box text-center bg-purple">
+                                <div class="icon"><i class="fa-sharp fa-solid fa-bag-shopping"></i></div>
+                                <h3>{{ bazar_count }}</h3>
+                                <span class="small">Bazar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            
+
+            <div class="dashboard-foot p-3 bg-light">
+                <a href="#" class="logout-btn">Logout</a>
+            </div>
+            
+        </div>
+    </main>
+
+    
+	
+
+    
+
+	<script src="/static/js/bootstrap.bundle.js"></script>
+	<script src="/static/js/swiper.js"></script>
+	<script src="/static/js/script.js"></script>
+</body>
+
+</html>
