@@ -24,8 +24,13 @@ class Bill(models.Model):
     date = models.DateField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     mill = models.IntegerField()
-    diposit = models.IntegerField(default=0)
-
+    diposit = models.IntegerField(default=0, null=True, blank=True)
+    establish_charge = models.FloatField(default=0)
+    mill_cost = models.FloatField(default=0)
+    total_cost = models.FloatField(default=0)
+    due_or_return = models.FloatField(default=0)
+    status = models.BooleanField(default=False)
+    
     class Meta:
         unique_together = ('date', 'user')
 
@@ -51,3 +56,12 @@ class Establish(models.Model):
         return str(self.date)
     
 
+class Expenditure(models.Model):
+    date = models.DateField(unique=True)
+    rice = models.IntegerField()
+    electric = models.IntegerField()
+    cook = models.IntegerField()
+
+
+    def __str__(self):
+        return str(self.date)
