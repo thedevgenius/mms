@@ -28,6 +28,7 @@
                     <li><a href="{% url 'dashboard' %}"><i class="fa-sharp fa-light fa-grid-horizontal"></i> Dashboard</a></li>
                     <li><a href="{% url 'add-mill' %}"><i class="fa-light fa-pot-food"></i>Add Meal</a></li>
                     <li><a href="{% url 'add-establish' %}"><i class="fa-light fa-garlic"></i>Add Expenditure</a></li>
+                    <li><a href="{% url 'bill' %}"><i class="fa-sharp fa-thin fa-money-bill"></i>Bill</a></li>
                 </ul>
             </div>
 
@@ -56,10 +57,29 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="dash-box text-center bg-danger">
-                                <div class="icon"><i class="fa-regular fa-money-bill-1-wave"></i></div>
-                                <h3>{{ bazar_count }}</h3>
-                                <span class="small">Due</span>
+                            <div class="bill-home">
+                                {% if prev_bill.status == True %}                            
+                                    <img src="/static/images/paid.png" alt="">
+                                {% else %}
+                                    <img src="/static/images/due.png" alt="">
+                                {% endif %}
+                                
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        <p class="mb-1">01/12/2023</p>
+                                        <p class="mb-1">{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                                        {% if prev_bill.status == True %}                            
+                                            <p class="mb-1 text-success">Paid</p>
+                                        {% else %}
+                                            <p class="mb-1 text-danger">Due</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-auto">
+                                        <p class="mb-1 text-end"><strong>₹ {{due}}</strong></p>
+                                        <p class="mb-1 text-end">Due Date</p>
+                                        <p class="mb-1 text-end">05/12/2023</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -8,8 +8,70 @@
     </div>
 
     <div class="container dashboard-cont py-3">
-        <h4>Bill</h4>
-        
+        <div class="bill-box shadow due p-3">
+            <img src="/static/images/due.png" alt="" class="due-img">
+            <!-- <img src="/static/images/paid.png" alt="" class="due-img"> -->
+            <div class="row justify-content-between gy-4 mb-4">
+                <div class="col-auto">
+                    <h2>D M</h2>
+                    <p class="mb-1">Navogram Jhill Road, Garia <br> Kolkata 700 0152, India </p>
+                    <p><a href="tel:6295828230">+91 6295828230</a></p>
+                </div>
+                <div class="col-auto">
+                    <h5>Invoice # {{ bill.id }}</h5>
+                    <p class="mb-1"> Date Issues: 25/08/2020 </p>
+                    <p class="mb-1"> Date Due: 28/08/2020 </p>
+                </div>
+            </div>
+            <div class="sep mb-4"></div>
+            <div class="row">
+                <div class="col-auto">
+                    <h6>Invoice To:</h6>
+                    <p class="mb-1">{{ bill.user.first_name }} {{ bill.user.last_name }}</p>
+                    <p class="mb-1"><a href="#" href="mailto:rupamdhara.1579@gmail.com">rupamdhara.1579@gmail.com</a></p>
+                    <p class="mb-1"><a href="#" href="tel:6295828230">+91 6295828230</a></p>
+                </div>
+            </div>
+
+            <table class="table bill-table mb-4">
+                <thead>
+                    <tr>
+                        <th>ITEM</th>
+                        <th>COST</th>
+                        <th>Qty.</th>
+                        <th>PRICE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Meal Charge</td>
+                        <td>₹ {{20.42}}</td>
+                        <td>{{bill.mill}}</td>
+                        <td>₹ {{ bill.mill_cost }}</td>
+                    </tr>
+                    <tr>
+                        <td>Establish</td>
+                        <td>₹ {{ bill.establish_charge }}</td>
+                        <td>1</td>
+                        <td>₹ {{ bill.establish_charge }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end bbn pb-1">Total:</td>
+                        <td class="bbn pb-1">₹ {{ bill.total_cost }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end bbn pb-1">Diposit:</td>
+                        <td class="bbn pb-1">₹ {{ bill.diposit }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end bbn pb-1"><strong>Due:</strong></td>
+                        <td class="bbn pb-1"><strong>₹ {{ bill.due_or_return }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="sep mb-4"></div>
+            <p class="note"><strong>Note: </strong>Please clear your dues within due date. If you notice any discrepancies above, please contact Rupam Dhara. <br>Thank You !</p>
+        </div>        
     </div>    
 
 

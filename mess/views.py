@@ -96,7 +96,8 @@ def AddEstablish(request):
 
     return render(request, 'mess/add-establish.html')
 
-def Bills(request):
+
+def Calculate(request):
     exp = Expenditure.objects.get(date__month=previous_month, date__year=previous_year)
     if exp is not None:
         total_mill = Bill.objects.filter(date__month=previous_month, date__year=previous_year).aggregate(Sum('mill'))['mill__sum']
@@ -111,7 +112,7 @@ def Bills(request):
         establish = Establish.objects.filter(date__month=previous_month, date__year=previous_year).aggregate(Sum('amount'))['amount__sum']
         electric_cook = exp.electric + exp.cook
         total_establish = establish + electric_cook
-        est_charge = round((total_establish / total_user), 2)
+        est_charge = round((total_establish / total_user))
 
 
         for user in users:
@@ -121,11 +122,21 @@ def Bills(request):
             bill = Bill.objects.get(user_id=user.id, date__month=previous_month, date__year=previous_year)
             bill.establish_charge = est_charge
             mill = bill.mill
-            bill.mill_cost = round((mill_charge*mill), 2)
+            bill.mill_cost = round((mill_charge*mill))
             total_cost = (mill_charge*mill) + est_charge
             bill.total_cost = round(total_cost)
             bill.diposit = diposit
             bill.due_or_return = round((total_cost - diposit))
+            if bill.due_or_return <= 0:
+                bill.status = True
             bill.save()
+    return render(request, 'mess/calculate.html')
 
-    return render(request, 'mess/bill.html')
+def Bills(request):
+    bill = Bill.objects.get(user_id=request.user.id, date__month=previous_month, date__year=previous_year)
+
+    data = {
+        'bill' : bill
+    }
+
+    return render(request, 'mess/bill.html', data)

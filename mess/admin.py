@@ -9,7 +9,7 @@ class DipositAdmin(admin.ModelAdmin):
 admin.site.register(Diposit, DipositAdmin)
 
 class BillAdmin(admin.ModelAdmin):
-    list_display = ("date", "user", "mill", "establish_charge", "mill_cost", "total_cost", "diposit", "due_or_return")
+    list_display = ("date", "user", "mill", "establish_charge", "mill_cost", "total_cost", "diposit", "due_or_return", "status")
 
 admin.site.register(Bill, BillAdmin)
 

@@ -42,8 +42,8 @@
             ];
             $("#add-mill").datepicker({
                 dateFormat: 'yy-mm-dd',
-                //minDate: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
-                //maxDate: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0),
+                minDate: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+                maxDate: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0),
                 beforeShowDay: function(date) {
                 var stringDate = $.datepicker.formatDate("yy-mm-dd", date);
                     return [disabledDates.indexOf(stringDate) === -1];

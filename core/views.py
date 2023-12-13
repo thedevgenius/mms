@@ -42,6 +42,8 @@ def Dashboard(request):
         'total_mill' : total_mill,
         'diposit' : diposit,
         'bazar_count' : bazar_count,
+        'due' : due,
+        'prev_bill' : prev_bill
 
     }
 

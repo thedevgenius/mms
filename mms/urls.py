@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from core import views as core_view
 from account import views as acc_view
+from mess import views as mess_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     path('login/', acc_view.LoginPage, name='login'),
     path('logout/', acc_view.LogoutPage, name='logout'),
     path('dashboard/', core_view.Dashboard, name='dashboard'),
+    path('calc/', mess_view.Calculate, name='calc'),
     path('mess/', include('mess.urls'))
 ]

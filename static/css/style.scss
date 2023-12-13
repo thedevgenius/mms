@@ -88,9 +88,9 @@ img{
 .text-dark{
     color: $black !important;
 }
-.text-success{
-    color: $yellow !important;
-}
+// .text-success{
+//     color: $yellow !important;
+// }
 .bg-dark{
     background-color: $black !important;
 }
@@ -315,5 +315,68 @@ nav{
         border-radius: 50%;
         margin: 0 auto;
         margin-bottom: 5px;
+    }
+}
+.bill-box{
+    border-radius: 7px;
+    position: relative;
+    > *{
+        position: relative;
+        z-index: 2;
+    }
+}
+.sep{
+    border-bottom: 1px solid #ccc;
+}
+.bill-table{
+    th{
+        color: #555;
+        font-weight: 500;
+        font-size: 15px;
+    }
+    td{
+        font-size: 15px;
+        color: #697a8d;
+    }
+    .bbn{
+        border-bottom: none;
+    }
+}
+.note{
+    font-size: 13px;
+}
+// .due{
+//     background-image: url(../images/due.png);
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: contain;
+// }
+
+.due-img{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0.4;
+    max-width: 220px;
+}
+.bill-home{
+    border: 1px solid #dfdfdf;
+    box-shadow: 0 0 10px #ddd;
+    padding: 10px;
+    border-radius: 3px;
+    position: relative;
+    > *{
+        position: relative;
+        z-index: 2;
+    }
+    img{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100px;
+        opacity: 0.8;
     }
 }
