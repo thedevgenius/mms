@@ -17,13 +17,20 @@
 <body>
 	
     <header class="dashboard-header bg-light">
-        <div class="container-fluid">
-            <h3 class="mb-0">Hey! {{ request.user.first_name }} {{ request.user.last_name }}</h3>
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-auto">
+                    <h3 class="mb-0">Hey! {{ request.user.first_name }} {{ request.user.last_name }}</h3>
+                </div>
+                <div class="col-auto">
+                    <img src="/static/images/due.png" alt="" class="profile-pic">
+                </div>
+            </div>
         </div>
     </header>
     <main class="site">
         <div class="page-content">
-            <div class="container-fluid bb py-3">
+            <div class="container bb py-3">
                 <ul class="link-list">
                     <li><a href="{% url 'dashboard' %}"><i class="fa-sharp fa-light fa-grid-horizontal"></i> Dashboard</a></li>
                     <li><a href="{% url 'add-mill' %}"><i class="fa-light fa-pot-food"></i>Add Meal</a></li>
@@ -34,7 +41,7 @@
 
             <div class="dashboard-cont py-3">
                 <div class="container">
-                    <div class="row g-1">
+                    <div class="row g-2">
                         <div class="col-4">
                             <div class="dash-box text-center bg-primary">
                                 <div class="icon"><i class="fa-solid fa-fork-knife"></i></div>
@@ -45,7 +52,7 @@
                         <div class="col-4">
                             <div class="dash-box text-center bg-orange">
                                 <div class="icon"><i class="fa-sharp fa-solid fa-wallet"></i></div>
-                                <h3>{{ diposit }}</h3>
+                                <h3>₹ {{ diposit }}</h3>
                                 <span class="small">Diposit</span>
                             </div>
                         </div>
@@ -84,21 +91,16 @@
                         </div>
                     </div>
                 </div>
-            </div>    
-            
-
-            <div class="dashboard-foot p-3 bg-light">
-                <a href="#" class="logout-btn">Logout</a>
             </div>
-            
         </div>
     </main>
-
     
-	
-
+    <footer>
+        <div class="dashboard-foot p-3 bg-light">
+            <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+        </div>
+    </footer>
     
-
 	<script src="/static/js/bootstrap.bundle.js"></script>
 	<script src="/static/js/swiper.js"></script>
 	<script src="/static/js/script.js"></script>

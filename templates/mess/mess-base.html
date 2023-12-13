@@ -25,11 +25,13 @@
     <main class="site">
         <div class="page-content">
             {% block 'content' %}{% endblock 'content' %}
-            <div class="dashboard-foot p-3 bg-light">
-                <a href="#" class="logout-btn">Logout</a>
-            </div>
         </div>
     </main>
+    <footer>
+        <div class="dashboard-foot p-3 bg-light">
+            <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+        </div>
+    </footer>
 
     <script src="/static/js/bootstrap.bundle.js"></script>
 	<script src="/static/js/swiper.js"></script>

@@ -380,3 +380,11 @@ nav{
         opacity: 0.8;
     }
 }
+.page-content{
+    min-height: calc(100vh - 122px);
+}
+.profile-pic{
+    max-width: 40px;
+    height: 40px;
+    object-fit: cover;
+}

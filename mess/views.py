@@ -40,7 +40,7 @@ def AddMill(request):
             bill_user = User.objects.get(id=user.id)
 
             try:
-                bill = Bill.objects.get(user_id=user.id, date__month=previous_month, date__year=previous_year)
+                bill = Bill.objects.get(user_id=user.id, date__month=current_month, date__year=current_year)
                 new_mill = bill.mill+int(mill)
                 bill.mill = new_mill
                 bill.save()

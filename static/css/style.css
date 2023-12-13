@@ -369,4 +369,15 @@ nav ul li a:hover {
   transform: translate(-50%, -50%);
   max-width: 100px;
   opacity: 0.8;
+}
+
+.page-content {
+  min-height: calc(100vh - 122px);
+}
+
+.profile-pic {
+  max-width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=style.css.map */
