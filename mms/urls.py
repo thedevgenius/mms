@@ -19,6 +19,8 @@ from django.urls import path, include
 from core import views as core_view
 from account import views as acc_view
 from mess import views as mess_view
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,3 +32,5 @@ urlpatterns = [
     path('calc/', mess_view.Calculate, name='calc'),
     path('mess/', include('mess.urls'))
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
