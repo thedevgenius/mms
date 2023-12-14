@@ -9,8 +9,12 @@
 
     <div class="container dashboard-cont py-3">
         <div class="bill-box shadow due p-3">
-            <img src="/static/images/due.png" alt="" class="due-img">
-            <!-- <img src="/static/images/paid.png" alt="" class="due-img"> -->
+            {% if bill.status == True %}                            
+                <img src="/static/images/paid.png" alt="" class="due-img">
+            {% else %}
+                <img src="/static/images/due.png" alt="" class="due-img">
+            {% endif %}
+
             <div class="row justify-content-between gy-4 mb-4">
                 <div class="col-auto">
                     <h2>D M</h2>
@@ -28,8 +32,10 @@
                 <div class="col-auto">
                     <h6>Invoice To:</h6>
                     <p class="mb-1">{{ bill.user.first_name }} {{ bill.user.last_name }}</p>
-                    <p class="mb-1"><a href="#" href="mailto:rupamdhara.1579@gmail.com">rupamdhara.1579@gmail.com</a></p>
-                    <p class="mb-1"><a href="#" href="tel:6295828230">+91 6295828230</a></p>
+                    {% if bill.user.email %}
+                        <p class="mb-1"><a href="mailto:{{ bill.user.email }}">{{ bill.user.email }}</a></p>
+                    {% endif %}
+                    <p class="mb-1"><a href="tel:6295828230">+91 {{ bill.user.username }}</a></p>
                 </div>
             </div>
 
