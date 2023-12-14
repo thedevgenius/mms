@@ -35,7 +35,7 @@
                     <li><a href="{% url 'dashboard' %}"><i class="fa-sharp fa-light fa-grid-horizontal"></i> Dashboard</a></li>
                     <li><a href="{% url 'add-mill' %}"><i class="fa-light fa-pot-food"></i>Add Meal</a></li>
                     <li><a href="{% url 'add-establish' %}"><i class="fa-light fa-garlic"></i>Add Expenditure</a></li>
-                    <li><a href="{% url 'bill' %}"><i class="fa-sharp fa-thin fa-money-bill"></i>Bill</a></li>
+                    {% comment %} <li><a href="{% url 'bill' %}"><i class="fa-sharp fa-thin fa-money-bill"></i>Bill</a></li> {% endcomment %}
                 </ul>
             </div>
 
@@ -63,7 +63,7 @@
                                 <span class="small">Bazar</span>
                             </div>
                         </div>
-                        <div class="col-12">
+                        {% comment %} <div class="col-12">
                             <div class="bill-home">
                                 {% if prev_bill.status == True %}                            
                                     <img src="/static/images/paid.png" alt="">
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </div>
             </div>
