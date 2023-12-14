@@ -23,7 +23,7 @@
                     <h3 class="mb-0">Hey! {{ request.user.first_name }} {{ request.user.last_name }}</h3>
                 </div>
                 <div class="col-auto">
-                    <img src="/static/images/due.png" alt="" class="profile-pic">
+                    <i class="fa-solid fa-user"></i>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
 
             <div class="dashboard-cont py-3">
                 <div class="container">
-                    <div class="row g-2">
+                    <div class="row mb-4 g-2">
                         <div class="col-4">
                             <div class="dash-box text-center bg-primary">
                                 <div class="icon"><i class="fa-solid fa-fork-knife"></i></div>
@@ -89,6 +89,32 @@
                                 </div>
                             </div>
                         </div> {% endcomment %}
+                    </div>
+
+                    <div class="row">
+                        {% if diposits %}
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3>Your diposits</h3>
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Amount</th>
+                                                    </tr>                                                
+                                                    {% for diposit in diposits %}
+                                                        <tr>
+                                                            <td>{{ diposit.date }}</td>
+                                                            <td>₹ {{ diposit.amount }}</td>
+                                                        </tr>
+                                                    {% endfor %}                                                    
+                                                </table>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                       {% endif %}
                     </div>
                 </div>
             </div>

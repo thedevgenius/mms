@@ -36,7 +36,7 @@ def Dashboard(request):
     except:
         due = 0
     
-
+    diposits = Diposit.objects.filter(user_id=request.user.id, date__month=c_m, date__year=c_y)
 
 
     #print(bazar_count)
@@ -45,6 +45,7 @@ def Dashboard(request):
         'diposit' : diposit,
         'bazar_count' : bazar_count,
         'due' : due,
+        'diposits' : diposits
         #'prev_bill' : prev_bill
 
     }
