@@ -30,9 +30,11 @@ def Dashboard(request):
     if diposit is None:
         diposit = 0
         #print(diposit)
-    
-    prev_bill = Bill.objects.get(user_id=request.user.id, date__month=p_m, date__year=p_y)
-    due = int(prev_bill.due_or_return)
+    try:
+        prev_bill = Bill.objects.get(user_id=request.user.id, date__month=p_m, date__year=p_y)
+        due = int(prev_bill.due_or_return)
+    except:
+        due = 0
     
 
 
@@ -43,7 +45,7 @@ def Dashboard(request):
         'diposit' : diposit,
         'bazar_count' : bazar_count,
         'due' : due,
-        'prev_bill' : prev_bill
+        #'prev_bill' : prev_bill
 
     }
 

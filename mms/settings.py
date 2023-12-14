@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+-*dn%ax7v@(av(-qv67+*w*ml6n*99z#msa@x62*x+fl4(l+%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,10 +76,22 @@ WSGI_APPLICATION = 'mms.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': 'postgresql://postgres:5d3FdCFbd1G--acG12ca-6bDDfA-Ee4-@viaduct.proxy.rlwy.net:43680/railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '5d3FdCFbd1G--acG12ca-6bDDfA-Ee4-',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': 43680,
     }
 }
 
@@ -117,12 +129,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+import os
 
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+
 
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
