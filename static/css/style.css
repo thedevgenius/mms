@@ -236,6 +236,16 @@ nav ul li a:hover {
   font-size: 14px;
 }
 
+.logo img {
+  max-width: 130px;
+  filter: brightness(0) saturate(100%) invert(99%) sepia(63%) saturate(1%) hue-rotate(212deg) brightness(117%) contrast(101%);
+}
+
+.cr-logo {
+  max-width: 100px;
+  height: auto;
+}
+
 @media (max-width: 768px) {
   .pad {
     padding-top: 40px;
