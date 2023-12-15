@@ -20,7 +20,7 @@ p{
     }
 }
 h2{
-    font-size: 30px;
+    font-size: 40px;
 }
 h3{
     font-size: 26px;
@@ -173,35 +173,122 @@ nav{
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba($color: #000000, $alpha: 0.5);
+        background-color: rgba($color: #000000, $alpha: 0.7);
     }
 }
-.username{
-    color: $yellow;
-    font-weight: 600;
-    cursor: pointer;
+
+.team-box{
+    .img-con{
+        max-width: 300px;
+        margin: 0 auto;
+        height: 300px;
+        background-color: #555;
+        margin-bottom: 20px;
+    }
+    h5{
+        color: $yellow;
+        font-family: $teko;
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+    
 }
-.profile{
-    position: relative;
+.team-slide{
+    padding-bottom: 60px;
+    .swiper-button-next, .swiper-button-prev{
+        top: auto;
+        bottom: 0;
+        border: 1px solid;
+        width: 40px;
+        height: 40px;
+        &::after{
+            font-size: 15px;
+        }
+    }
+    .swiper-button-next{
+        right: 37%;
+    }
+    .swiper-button-prev{
+        left: 37%;
+    }
 }
-.profile-dropdown{
-    display: none;
-    position: absolute;
-    list-style: none;
-    background-color: $white;
-    min-width: 150px;
-    padding-left: 0;
-    li{
-        a{
-            display: block;
-            padding: 5px 10px;
-            &:hover{
-                color: $white;
-                background-color: $yellow;
-            }
+
+.contact{
+    background-color: #f8f4f3;
+}
+.contact-box{
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    i{
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    a{
+        font-family: $teko;
+        letter-spacing: 1px;
+        font-size: 20px;
+        color: #888;
+        &:hover{
+            color: $yellow;
         }
     }
 }
+.footer{
+    background-color: #252531;
+    padding: 15px 0;
+    p{
+        color: #888;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:768px) {
+    .pad{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .home-banner{
+        min-height: 500px;
+        .container{
+            position: relative;
+            z-index: 1;
+        }
+        h6{
+            font-family: $teko;
+            font-size: 23px;
+            color: $yellow;
+            text-transform: uppercase;
+            line-height: 1;
+            font-weight: lighter;
+            letter-spacing: 2px;
+            margin-bottom: 0;
+        }
+        h1{
+            font-size: 60px;
+            letter-spacing: 1px;
+            color: $white;
+            line-height: 1;
+            margin-bottom: 0;
+        }
+        p{
+            font-size: 20px;
+            color: #c1c1c1;
+        }
+    }
+    .header-before{
+        text-align: center;
+        font-family: "Teko", sans-serif;
+        font-weight: 300;
+        color: #88510e;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+}
+
+
 
 .dashboard-header{
     padding: 10px 0;
