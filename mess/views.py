@@ -25,7 +25,7 @@ def Mills(request):
 
 @login_required
 def AddMill(request):
-    users = User.objects.filter(is_active=True)
+    users = User.objects.filter(is_active=True).order_by('id')
     mills = Mill.objects.all()
 
     if request.method == 'POST':
