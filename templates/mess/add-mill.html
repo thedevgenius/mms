@@ -13,7 +13,7 @@
             {% csrf_token %}
             {% comment %} <label>Date:</label> {% endcomment %}
             <div class="add-box">
-                <input type="text" name="date" id="add-mill" class="form-control mb-4" placeholder="yyyy/mm/dd">
+                <input type="text" name="date" id="add-mill" class="form-control mb-4" placeholder="yyyy/mm/dd" required>
                 <i class="fa-sharp fa-solid fa-calendar-days"></i>
             </div>
             {% for user in users %}
