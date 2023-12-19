@@ -13,8 +13,13 @@ class Mill(models.Model):
         return str(self.date)
 
 class Diposit(models.Model):
+    REASONE_CHOICE = [
+        ("B", "Bazar"),
+        ("E", "Establishment"),
+    ]
     date = models.DateField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    reasone = models.CharField(max_length=1, choices=REASONE_CHOICE, default='B')
     amount = models.IntegerField()
 
     def __str__(self):

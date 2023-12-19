@@ -4,7 +4,7 @@ from .models import *
 admin.site.register(Mill)
 
 class DipositAdmin(admin.ModelAdmin):
-    list_display = ("date", "user", "amount")
+    list_display = ("date", "user", "reasone", "amount")
 
 admin.site.register(Diposit, DipositAdmin)
 

@@ -1,5 +1,5 @@
 {% extends 'mess/mess-base.html' %}
-{% block 'title' %}Add Mill | Angel Mess{% endblock 'title' %}
+{% block 'title' %}Add Establishment | Angel Mess{% endblock 'title' %}
 
 {% block 'content' %}
     
@@ -9,7 +9,7 @@
 
     <div class="container dashboard-cont py-3">
         <h4>Add Your Bazar</h4>
-        <form method="post">
+        <form method="post" id="est-form">
             {% csrf_token %}
             {% comment %} <label>Date:</label> {% endcomment %}
             <div class="add-box">
@@ -17,15 +17,15 @@
                 <i class="fa-sharp fa-solid fa-calendar-days"></i>
             </div>
             <select name="details" class="form-control mb-3" required>
-                <option value="">-- Select Reasone --</option>
+                <option value="ns">-- Select Reasone --</option>
                 <option value="O">Oil</option>
                 <option value="V">Ginger & Garlic</option>
                 <option value="C">Green Chilli</option>
                 <option value="G">Gas</option>
-                <option value="O">O</option>
+                <option value="O">Others</option>
             </select>
 
-            <input type="text" name="amount" class="form-control mb-4" placeholder="Amount" required>
+            <input type="text" name="amount" class="form-control mb-4" id="numberField" placeholder="Amount" required>
 
             <div class="text-center">
                 <button type="submit" class="btn btn-dark">ADD ESTABLISH</button>

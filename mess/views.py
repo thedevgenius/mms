@@ -64,6 +64,7 @@ def AddMill(request):
         Diposit.objects.create(
             date=date,
             user=user,
+            reasone='B',
             amount=amount
         )
 
@@ -90,6 +91,7 @@ def AddEstablish(request):
         Diposit.objects.create(
             date=date,
             user=user,
+            reasone='E',
             amount=amount
         )
         return redirect('dashboard')
@@ -140,3 +142,23 @@ def Bills(request):
     }
 
     return render(request, 'mess/bill.html', data)
+
+
+@login_required
+def DeleteMill(request, id):
+    mill = Mill.objects.get(id = id)
+    mill_dict = eval(mill.mill)
+    mill_date = mill.date
+    mill_user = mill.user.id
+    for key, value in mill_dict.items():
+        bill = Bill.objects.get(user_id=key, date__month=mill_date.month, date__year=mill_date.year)
+        current_mill = bill.mill
+        new_mill = current_mill - int(value)
+        bill.mill =  new_mill
+        bill.save()
+
+    diposit = Diposit.objects.get(user_id=mill_user, date__day=mill_date.day, date__month=mill_date.month, date__year=mill_date.year, reasone='B')
+    diposit.delete()
+    mill.delete()
+
+    return redirect('mills')

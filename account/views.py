@@ -8,6 +8,7 @@ def RegisterPage(request):
         User.objects.create_user(
             username=request.POST['username'],
             first_name=request.POST['first_name'],
+            last_name=request.POST['last_name'],
             password=request.POST['password']
         )
         return redirect('home')

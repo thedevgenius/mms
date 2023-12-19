@@ -36,6 +36,10 @@
                     <li><a href="{% url 'add-mill' %}"><i class="fa-light fa-pot-food"></i>Add Meal</a></li>
                     <li><a href="{% url 'add-establish' %}"><i class="fa-light fa-garlic"></i>Add Expenditure</a></li>
                     {% comment %} <li><a href="{% url 'bill' %}"><i class="fa-sharp fa-thin fa-money-bill"></i>Bill</a></li> {% endcomment %}
+                    {% if request.user.is_superuser %}
+                        <li><a href="{% url 'mills' %}"><i class="fa-regular fa-utensils"></i>Mills</a></li>
+                        <li><a href="{% url 'register' %}"><i class="fa-regular fa-user-plus"></i>Register User</a></li>
+                    {% endif %}
                 </ul>
             </div>
 
