@@ -33,6 +33,12 @@
                             <td><a href="{% url 'mill-delete' mill.id %}">Delete</a></td>
                         </tr>
                     {% endfor %}
+                    <tr>
+                        <th>Total</th>
+                        {% for bill in bills %}
+                            <th>{{ bill.mill }}</th>
+                        {% endfor %}
+                    </tr>
                 </tbody>
             </table>
         </div>

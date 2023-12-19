@@ -16,10 +16,12 @@ previous_year = GetPrevYear()
 def Mills(request):
     users = User.objects.filter(is_active=True).order_by('id')
     mills = Mill.objects.filter(date__month=current_month, date__year=current_year)
+    bills = Bill.objects.filter(date__month=current_month, date__year=current_year).order_by('id')
 
     data = {
         'users' : users,
-        'mills' : mills
+        'mills' : mills,
+        'bills' : bills
     }
     return render(request, 'mess/mills.html', data)
 
