@@ -14,7 +14,7 @@ previous_year = GetPrevYear()
 
 
 def Mills(request):
-    users = User.objects.filter(is_active=True)
+    users = User.objects.filter(is_active=True).order_by('id')
     mills = Mill.objects.filter(date__month=current_month, date__year=current_year)
 
     data = {
